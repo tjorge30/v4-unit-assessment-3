@@ -1,0 +1,51 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBar {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100vw;
+  height: 60px;
+  background-color: aquamarine;
+  text-align: center;
+  text-justify: auto;
+}
+
+.searchBarArea {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  margin-top: 60px;
+  width: 100vw;
+  height: 60px;
+  background-color: bisque;
+  text-align: center;
+  text-justify: auto;
+}
+
+.bookArea {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: darkcyan;
+}
+
+
+.shelfArea {
+  width: 30vw;
+  height: 100vh;
+  margin-left: 70vw;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  background-color: darkgray;
+}
+
