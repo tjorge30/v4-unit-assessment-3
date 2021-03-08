@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import data from '../data';
 
 
 export default class Shelf extends Component {
@@ -7,11 +6,14 @@ export default class Shelf extends Component {
         super(props)
     }
       render() {
+          let updateShelf = this.props.shelfList.map(element => {
+          return <li>{element}</li>
+          })
        return(
-       <div className='shelf'>
-           <p>Your Shelf!</p>
-           <button>Clear Shelf</button>
-       {/* <ul>{data[index].title.map(elem => <li>{elem}</li>)}</ul> */}
+       <div className='shelfTitles'>
+           <ul>
+                {updateShelf}
+            </ul>
        </div>
        )}
     }

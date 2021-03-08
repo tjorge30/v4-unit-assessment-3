@@ -75,3 +75,7 @@
   font-weight: 800;
   font-size: larger;
 }
+
+.shelfTitles ul{
+  list-style: none;
+}

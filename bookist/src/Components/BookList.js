@@ -18,17 +18,16 @@ export default class BookList extends Component {
     }
 
 
-    addToShelf(index) {
-        //when a book is clicked add title to shelf.
-    //     this.props.add(this.state.shelf);
-    // this.setState({ shelf: "" });
-        alert ('book was clicked')
-          }
+    addToShelf(book) {
+        this.setState({
+            shelf: [...this.state.shelf, book.title]
+        })
+    }
         
 
     clearShelf() {
-        //when button 'clear' is pushed the shelf array is cleared.
-        this.setstate({
+        //when button 'clear' is pushed the shelf array is set to empty array.
+        this.setState({
             shelf: []
         })
     }
@@ -42,7 +41,9 @@ export default class BookList extends Component {
     // }
 
     render() { 
-       
+        const bookShelf = this.state.data.map(element => {
+            return <img alt='bookcover' src={element.img} onClick={() => this.addToShelf(element)}/>
+        })
         return (
             <div>
                 <div className='searchBarArea'>
@@ -50,34 +51,16 @@ export default class BookList extends Component {
                 </div>
                <section className='bookArea'>
                     <div className='books'>
-                        <img alt='bookcover' src={data[0].img} onClick={this.addToShelf}/>
-
-                        <img alt='bookcover' src={data[1].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[2].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[3].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[4].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[5].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[6].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[7].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[8].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[9].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[10].img} onClick={this.addToShelf}/>
-                        
-                        <img alt='bookcover' src={data[11].img} onClick={this.addToShelf}/>
+                        {bookShelf}
                         
                     </div>
         
                     <div className='shelfArea'>
-                        <Shelf/>
+                    <div className='shelf'>
+                        <p>Your Shelf!</p>
+                        <button onClick={this.clearShelf}>Clear Shelf</button>
+                    </div>
+                        <Shelf shelfList = {this.state.shelf}/>
                     </div>
                 </section> 
           </div>
