@@ -22,7 +22,7 @@ class Character {
   }
 
   getInfo() {
-    return 'This is a ${this.type} character named ${this.name}.'
+    return 'This is a ' + this.type + ' character named ' + this.name + '.'
   }
 };
 
@@ -51,9 +51,9 @@ class NPC extends Character{
   }
 
   dialogue(){
-    return '${this.name}: ${this.phrase}'
+    return this.name + ': ' + this.phrase
   }
-};
+}
 
 
 /*
@@ -62,8 +62,8 @@ class NPC extends Character{
 */
 
 //CODE HERE
-const ralph = new NPC(NiceLand, `I'm gonna wreck it!`);
-ralph.dialogue('Ralph', 'human');
+const ralph = new NPC('Ralph', 'human', 'NiceLand', `I'm gonna wreck it!`);
+ralph.dialogue();
 /*
     Next you're going to create three variables to store information about Ralph.
     First, make a variable named ralphsInfo whose value will be the invocation of Ralph's getInfo method.
@@ -108,12 +108,12 @@ class Player extends Character {
     defend(amount){
       let x = amount - this.healthLevel
       if (x > 0){
-        return {attackStrength: amount, remainingHealth: x, message: '${this.name} is still in the fight!'}
+        return {attackStrength: amount, remainingHealth: x, message: this.name + ' is still in the fight!'}
       } else {
-        return '${this.name} has been defeated!'
+        return this.name + ' has been defeated!'
       }
     }
-};
+}
 /*
     Next, we'll create two Players.
     Store the first in a variable called aang, his name should be 'Aang' 
@@ -162,7 +162,7 @@ class Hero extends Player {
   }
 
   useSuperPower(index){
-    return '${this.name} used ${this.superPowers[index]}!'
+    return this.name + ' used '  + this.superPowers[index] + ' !'
   }
 };
 /*
@@ -176,3 +176,7 @@ class Hero extends Player {
 
 //CODE HERE
 const fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000);
+fireSpitter.addSuperPower('spitting fire');
+fireSpitter.addSuperPower('flight');
+fireSpitter.addSuperPower('invisability');
+let fireSpitterAttack = fireSpitter.useSuperPower(0);

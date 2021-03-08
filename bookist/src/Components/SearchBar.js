@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { 
             userInput: '',
          }
     }
-    render() { 
+
+    handleChange(value) {
+            this.setState({ userInput: value });    
+    }
+
+    render(props) { 
+        let booksToDisplay = [];
         return ( 
             <section>
-            <h1>this is search bar</h1>
+            <input onChange={e => this.handleChange(e.target.value)} type="text"></input>
+            <button>Search</button>
+            <button>Clear Search</button>
             </section>
          );
     }
